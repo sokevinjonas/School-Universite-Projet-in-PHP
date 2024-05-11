@@ -51,7 +51,7 @@
                         <a class="nav-link" href="../../index.php">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">À propos</a>
+                        <a class="nav-link" href="../propos/propos.php">À propos</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="../blog/blog.php">Blog</a>

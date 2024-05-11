@@ -4,7 +4,9 @@
         <span class="text">Gestion universite</span>
     </a>
     <ul class="side-menu top">
-        <!-- <li <?php if ($currentPage == "index.php") echo "class='active'"; ?>>
+        <?php if(isset($_SESSION['personnel_id'])) { ?>
+        <!-- Menu pour les utilisateurs connectés -->
+        <li <?php if ($currentPage == "index.php") echo "class='active'"; ?>>
             <a href="/projet_web/index.php">
                 <i class='bx bxs-dashboard'></i>
                 <span class="text">Accueil</span>
@@ -23,7 +25,8 @@
                 <i class='bx bxs-shopping-bag-alt'></i>
                 <span class="text">Gestion Personnel</span>
             </a>
-        </li> -->
+        </li>
+        <?php } ?>
 
         <li>
             <a href="/projet_web/pages/blog/blog.php">
@@ -45,11 +48,22 @@
                 <span class="text">A Propos</span>
             </a>
         </li>
+
+        <?php if(isset($_SESSION['personnel_id'])) { ?>
         <li>
-            <a href="#" class="logout">
+            <a href="/projet_web/auth/logout.php" class="logout">
                 <i class='bx bxs-log-out-circle'></i>
                 <span class="text">Déconnexion</span>
             </a>
         </li>
+        <?php } ?>
+        <?php if(!isset($_SESSION['personnel_id'])) { ?>
+        <li <?php if ($currentPage == "inscrire-personnels.php" ) echo "class='active'"; ?>>
+            <a href="/projet_web/pages/personnels/inscrire-personnels.php" class="logout">
+                <i class='bx shopping-bag-alt'></i>
+                <span class="text">S'inscire</span>
+            </a>
+        </li>
+        <?php } ?>
     </ul>
 </section>

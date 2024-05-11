@@ -1,4 +1,6 @@
 <?php
+// Démarrer la session
+session_start();
 include_once('../../traitements/bd.php');
 
 // Requête pour récupérer les étudiants

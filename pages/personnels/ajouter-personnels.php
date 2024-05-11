@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -69,8 +72,8 @@
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="/projet_web/pages/etudiants/listes-etudiants.php">Liste des
-                                Personnels</a>
+                            <a class="active" href="/projet_web/pages/etudiants/listes-etudiants.php">Ajouter un
+                                Personnel</a>
                         </li>
                     </ul>
                 </div>
