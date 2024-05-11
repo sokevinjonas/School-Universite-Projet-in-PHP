@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // $date_inscription = $_POST['date_inscription'];
 
         // Insertion des données dans la base de données
-        $query = $bdd->prepare("INSERT INTO etudiant (nom, prenom, lieuNaissance, dateNaissance, filiere, genre, classe) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $query = $bdd->prepare("INSERT INTO etudiant (nom, prenom, dateNaissance, lieuNaissance, filiere, genre, classe) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $query->execute([$nom, $prenom, $date_naissance, $lieu_naissance, $filiere, $genre, $classe]);
 
         // Redirection vers la même page avec un message de succès

@@ -103,7 +103,7 @@ $query = $bdd->query("SELECT * FROM etudiant");
                                 echo "<td>" . $row['filiere'] . "</td>";
                                 echo "<td>" . $row['classe'] . "</td>";
                                 echo "<td>";
-                                echo "<a class='button'>Voir</a>";
+                                echo "<a href='../../traitements/show-etudiant.php?detail=" . $row['matricule'] . "' class='button'>Voir</a>";
                                 echo "<a class='button'>Modifier</a>";
                                 // Lien de suppression
                                 echo "<a href='../../traitements/delete-etudiant.php?delete=" . $row['matricule'] . "' class='button' onclick='return confirm(\"Êtes-vous sûr de vouloir supprimer cet étudiant?\")'>Supprimer</a>";
