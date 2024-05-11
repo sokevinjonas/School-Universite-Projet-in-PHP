@@ -44,6 +44,17 @@ $query = $bdd->query("SELECT * FROM etudiant");
         margin-bottom: 15px;
         border-radius: 5px;
     }
+
+    .success {
+        display: none;
+        color: #ffffff;
+        background-color: #83e44f;
+        border-color: #c3e6cb;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+    }
     </style>
 </head>
 
@@ -58,15 +69,21 @@ $query = $bdd->query("SELECT * FROM etudiant");
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Bievenue</h1>
+                    <h1>Liste des etudiants</h1>
                     <?php
                     // Vérifier si un message est présent dans l'URL
                     if(isset($_GET['message'])) {
                         $message = $_GET['message'];
                     }
+                    if(isset($_GET['success'])) {
+                        $success = $_GET['success'];
+                    }
                     ?>
-                    <div id="alert" class="alert" <?php if(isset($message)) echo "style='display: block;'"; ?>>
+                    <div id="alert" class="alert" <?php if(isset($message)) echo "style='display: block;'" ; ?>>
                         <?php if(isset($message)) echo $message; ?>
+                    </div>
+                    <div id="alert" class="success" <?php if(isset($success)) echo "style='display: block;'" ; ?>>
+                        <?php if(isset($success)) echo $success; ?>
                     </div>
                     <ul class="breadcrumb">
                         <li>
@@ -104,7 +121,7 @@ $query = $bdd->query("SELECT * FROM etudiant");
                                 echo "<td>" . $row['classe'] . "</td>";
                                 echo "<td>";
                                 echo "<a href='../../traitements/show-etudiant.php?detail=" . $row['matricule'] . "' class='button'>Voir</a>";
-                                echo "<a class='button'>Modifier</a>";
+                                echo "<a href='modifier-etudiants.php?modifier=" . $row['matricule'] . "' class='button'>Modifier</a>";
                                 // Lien de suppression
                                 echo "<a href='../../traitements/delete-etudiant.php?delete=" . $row['matricule'] . "' class='button' onclick='return confirm(\"Êtes-vous sûr de vouloir supprimer cet étudiant?\")'>Supprimer</a>";
                                 echo "</td>";

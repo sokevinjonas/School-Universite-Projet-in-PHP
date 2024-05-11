@@ -5,16 +5,16 @@ include_once('bd.php');
 // Vérification de la présence du matricule de l'étudiant dans l'URL
 if(isset($_GET['detail'])) {
     // Récupération du matricule de l'étudiant
-    $matricule_etudiant = $_GET['detail'];
+    $id_personnel = $_GET['detail'];
 
     // Requête pour récupérer les détails de l'étudiant en fonction de son matricule
-    $query = $bdd->prepare("SELECT * FROM etudiant WHERE matricule = ?");
-    $query->execute([$matricule_etudiant]);
+    $query = $bdd->prepare("SELECT * FROM personnel WHERE id = ?");
+    $query->execute([$id_personnel]);
 
     // Vérification si l'étudiant a été trouvé
     if ($query->rowCount() > 0) {
         // Récupération des données de l'étudiant
-        $etudiant = $query->fetch(PDO::FETCH_ASSOC);
+        $personnel = $query->fetch(PDO::FETCH_ASSOC);
     }
 }
 ?>
@@ -31,7 +31,7 @@ if(isset($_GET['detail'])) {
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/formulaire.css">
 
-    <title>Liste etudiants</title>
+    <title>Liste personnels</title>
 </head>
 
 <body>
@@ -44,15 +44,15 @@ if(isset($_GET['detail'])) {
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Détails de l'étudiant</h1>
+                    <h1>Détails de personnel</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Gestion Etudiant</a>
+                            <a href="#">Gestion Personnel</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="/projet_web/pages/etudiants/listes-etudiants.php">Liste des
-                                Etudiants</a>
+                            <a class="active" href="/projet_web/pages/personnels/listes-personnels.php">Liste des
+                                Personnels</a>
                         </li>
                     </ul>
                 </div>
@@ -60,67 +60,56 @@ if(isset($_GET['detail'])) {
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Détails de l'étudiant</h3>
+                        <h3>Détails de personnel</h3>
                     </div>
                     <?php
                     // Vérification si les détails de l'étudiant ont été récupérés avec succès
-                    if(isset($etudiant) && !empty($etudiant)) {
+                    if(isset($personnel) && !empty($personnel)) {
                     ?>
-                    <form action="/projet_web/traitements/update_etudiant.php" method="POST">
+                    <form action="/projet_web/traitements/update_personnel.php" method="POST">
                         <div class="form">
-                            <input type="hidden" name="matricule" value="<?php echo $etudiant['matricule']; ?>">
+                            <input type="hidden" name="id" value="<?php echo $personnel['id']; ?>">
                             <div class="row">
                                 <div class="col">
                                     <label for="nom">Nom:</label>
                                     <input disabled type="text" id="nom" name="nom"
-                                        value="<?php echo $etudiant['nom']; ?>">
+                                        value="<?php echo $personnel['nom']; ?>">
                                 </div>
                                 <div class="col">
                                     <label for="prenom">Prénom(s):</label>
                                     <input disabled type="text" id="prenom" name="prenom"
-                                        value="<?php echo $etudiant['prenom']; ?>">
+                                        value="<?php echo $personnel['prenom']; ?>">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <label for="LieuNaisse">Lieu de Naissance:</label>
-                                    <input disabled type="text" id="LieuNaisse" name="LieuNaisse"
-                                        value="<?php echo $etudiant['lieuNaissance']; ?>">
+                                    <label for="LieuNaisse">Date de Naissance:</label>
+                                    <input disabled type="text" id="date_de_naissance" name="date_de_naissance"
+                                        value="<?php echo $personnel['date_de_naissance']; ?>">
                                 </div>
                                 <div class="col">
-                                    <label for="filiere">Filière:</label>
-                                    <input disabled type="text" id="filiere" name="filiere"
-                                        value="<?php echo $etudiant['filiere']; ?>">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="genre">Genre:</label>
-                                    <select id="genre" name="genre">
-                                        <option disabled value="homme"
-                                            <?php if($etudiant['genre'] == 'homme') echo 'selected'; ?>>Homme</option>
-                                        <option disabled value="femme"
-                                            <?php if($etudiant['genre'] == 'femme') echo 'selected'; ?>>Femme</option>
-                                    </select>
-                                </div>
-                                <div class="col">
-                                    <label for="classe">Classe:</label>
-                                    <input disabled type="text" id="classe" name="classe"
-                                        value="<?php echo $etudiant['classe']; ?>">
+                                    <label for="filiere">Pays:</label>
+                                    <input disabled type="text" id="pays" name="pays"
+                                        value="<?php echo $personnel['pays']; ?>">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <label for="dateNaisse">Date de Naissance:</label>
-                                    <input disabled type="text" id="dateNaisse" name="dateNaisse"
-                                        value="<?php echo $etudiant['dateNaissance']; ?>">
+                                    <label for="dateNaisse">Email:</label>
+                                    <input disabled type="email" id="email" name="email"
+                                        value="<?php echo $personnel['email']; ?>">
+                                </div>
+                                <div class="col">
+                                    <label for="dateNaisse">Mot de passe:</label>
+                                    <input disabled type="text" id="mot_de_passe" name="mot_de_passe"
+                                        value="<?php echo $personnel['mot_de_passe']; ?>">
                                 </div>
                             </div>
                         </div>
                     </form>
                     <?php
                     } else {
-                        echo "<p>Aucun étudiant trouvé.</p>";
+                        echo "<p>Aucun personnel trouvé.</p>";
                     }
                     ?>
                 </div>

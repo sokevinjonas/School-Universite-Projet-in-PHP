@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/formulaire.css">
 
-    <title>Liste etudiants</title>
+    <title>Liste Personnel</title>
     <style>
     .alert {
         display: none;
@@ -47,7 +47,7 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Ajouter un nouvel etudiant</h1>
+                    <h1>Ajouter un nouveau personnel</h1>
                     <?php
                     // Vérifier si un message est présent dans l'URL
                     if(isset($_GET['message'])) {
@@ -65,12 +65,12 @@
                     </div>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Gestion Etudiant</a>
+                            <a href="#">Gestion Personnel</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
                             <a class="active" href="/projet_web/pages/etudiants/listes-etudiants.php">Liste des
-                                Etudiants</a>
+                                Personnels</a>
                         </li>
                     </ul>
                 </div>
@@ -78,10 +78,10 @@
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Liste des étudiants</h3>
-                        <a href="">Ajouter un nouvel étudiant</a>
+                        <h3>Liste des personnels</h3>
+                        <a href="">Ajouter un nouveau personnel</a>
                     </div>
-                    <form action="/projet_web/traitements/store_etudiant.php" method="POST">
+                    <form action="/projet_web/traitements/store_personnel.php" method="POST">
                         <div class="form">
                             <div class="row">
                                 <div class="col">
@@ -95,40 +95,27 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <label for="LieuNaisse">Lieu de Naissance:</label>
-                                    <input type="text" id="LieuNaisse" name="LieuNaisse">
+                                    <label for="LieuNaisse">Date de Naissance:</label>
+                                    <input type="text" id="date_de_naissance" name="date_de_naissance">
                                 </div>
                                 <div class="col">
-                                    <label for="filiere">Filière:</label>
-                                    <input type="text" id="filiere" name="filiere">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="genre">Genre:</label>
-                                    <select id="genre" name="genre">
-                                        <option value="homme">Homme</option>
-                                        <option value="femme">Femme</option>
-                                    </select>
-                                </div>
-                                <div class="col">
-                                    <label for="classe">Classe:</label>
-                                    <input type="text" id="classe" name="classe">
+                                    <label for="filiere">Pays:</label>
+                                    <input type="text" id="pays" name="pays">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <label for="dateNaisse">Date de Naissance:</label>
-                                    <input type="date" id="dateNaisse" name="dateNaisse">
+                                    <label for="dateNaisse">Email:</label>
+                                    <input type="email" id="email" name="email">
                                 </div>
-                                <!-- <div class="col">
-                                    <label for="date_inscription">Date d'inscription:</label>
-                                    <input type="date" id="date_inscription" name="date_inscription">
-                                </div> -->
+                                <div class="col">
+                                    <label for="date_inscription">Mot de passe:</label>
+                                    <input type="password" id="mot_de_passe" name="mot_de_passe">
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <input type="submit" name="enregistrer" class="button" value="Ajouter">
+                                    <input type="submit" name="enregistrer" class="button" value="Enregistré">
                                 </div>
                             </div>
                         </div>
@@ -140,4 +127,4 @@
         </main>
         <!-- MAIN -->
     </section>
-    <?php include '../..//includes/footer.php'; ?>
+    <?php include '../../includes/footer.php'; ?>
