@@ -1,7 +1,7 @@
 <section id="sidebar">
     <a href="#" class="brand">
         <i class='bx bxs-smile'></i>
-        <span class="text">Gestion universite</span>
+        <span class="text">Gestion Université</span>
     </a>
     <ul class="side-menu top">
         <?php if(isset($_SESSION['personnel_id'])) { ?>
@@ -15,14 +15,14 @@
         <li
             <?php if ($currentPage == "listes-etudiants.php" || $currentPage == "ajouter-etudiants.php" || $currentPage == "modifier-etudiants.php") echo "class='active'"; ?>>
             <a href="/projet_web/pages/etudiants/listes-etudiants.php">
-                <i class='bx bxs-shopping-bag-alt'></i>
+                <i class='bx bx-user'></i>
                 <span class="text">Gestion Etudiant</span>
             </a>
         </li>
         <li
             <?php if ($currentPage == "listes-personnels.php" || $currentPage == "ajouter-personnels.php" || $currentPage == "modifier-personnels.php") echo "class='active'"; ?>>
             <a href="/projet_web/pages/personnels/listes-personnels.php">
-                <i class='bx bxs-shopping-bag-alt'></i>
+                <i class='bx bx-user'></i>
                 <span class="text">Gestion Personnel</span>
             </a>
         </li>
@@ -30,13 +30,13 @@
 
         <li>
             <a href="/projet_web/pages/blog/blog.php">
-                <i class='bx bxs-doughnut-chart'></i>
+                <i class='bx bx-book'></i>
                 <span class="text">Blog</span>
             </a>
         </li>
         <li>
             <a href="/projet_web/pages/contact/contact.php">
-                <i class='bx bxs-doughnut-chart'></i>
+                <i class='bx bx-phone'></i>
                 <span class="text">Contact</span>
             </a>
         </li>

@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -5,6 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À propos - Université Aube Nouvelle</title>
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/formulaire.css">
     <style>
@@ -32,12 +37,14 @@
 
     .team-members {
         display: flex;
+        justify-content: space-between;
         flex-direction: row;
+        gap: 10px;
         margin-top: 10px;
     }
 
     .member {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 
     .member h4 {
@@ -57,55 +64,52 @@
             <div class="head-title">
                 <div class="container">
                     <h1>À propos de notre projet</h1>
-                    <p>Notre projet consiste à créer un site web de gestion pour notre université, offrant un système
-                        complet
+                    <p>Notre projet consiste à créer une application web de gestion universitaire, offrant un système
                         pour
-                        les étudiants, le corps professoral et l'administration.</p>
+                        les étudiants, le corps professoral.</p>
                     <p>Sur ce site, vous pourrez :</p>
                     <ul>
-                        <li>Consulter les programmes académiques offerts</li>
-                        <li>Accéder aux informations sur les cours et les horaires</li>
                         <li>Effectuer des inscriptions en ligne</li>
-                        <li>Accéder à des ressources pédagogiques et documents de cours</li>
-                        <li>Consulter les événements et activités universitaires</li>
-                        <li>Contacter les départements et le personnel administratif</li>
-                        <li>Et bien plus encore...</li>
+                        <li>Gestion des etudiants</li>
+                        <li>Gestion des personnnels</li>
+                        <li>Et d'autres fonctionnalitées futures...</li>
                     </ul>
-                    <p>Ce site vise à simplifier la gestion académique et à améliorer l'expérience des étudiants, du
-                        corps
-                        enseignant et du personnel administratif.</p>
+                    <p>Ce site vise à simplifier la gestion académique et à améliorer l'expérience du personnnel.</p>
 
-                    <h2>Le groupe 4</h2>
+                    <h2>Les membres du Groupe 4:</h2>
                     <div class="team-members">
                         <div class="member">
-                            <h4>John Doe</h4>
+                            <h4>Ouedraogo Abdoul Aziz</h4>
                         </div>
                         <div class="member">
-                            <h4>Jane Smith</h4>
+                            <h4>WOUROHIRE Samuel</h4>
                         </div>
                         <div class="member">
-                            <h4>Michael Johnson</h4>
+                            <h4>SANFO Mahamadi</h4>
                         </div>
                         <div class="member">
-                            <h4>Emily Brown</h4>
+                            <h4>Ouedraogo Ismael</h4>
                         </div>
                         <div class="member">
-                            <h4>David Williams</h4>
+                            <h4>ILBOUDO Songr La Panga Christian</h4>
                         </div>
                         <div class="member">
-                            <h4>Sarah Miller</h4>
+                            <h4>NANA Aristide</h4>
                         </div>
                         <div class="member">
-                            <h4>Robert Wilson</h4>
+                            <h4>BAGUIAN Abdoul fataaf</h4>
                         </div>
                         <div class="member">
-                            <h4>Emma Davis</h4>
+                            <h4>KANAZOE Latifatou</h4>
                         </div>
                         <div class="member">
-                            <h4>Christopher Taylor</h4>
+                            <h4>CDIALLO Issiaka</h4>
                         </div>
                         <div class="member">
-                            <h4>Laura Martinez</h4>
+                            <h4>BONKOUGOU Justin</h4>
+                        </div>
+                        <div class="member">
+                            <h4>SO Kevin Jonas</h4>
                         </div>
                     </div>
                 </div>

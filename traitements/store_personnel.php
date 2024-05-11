@@ -1,4 +1,6 @@
 <?php 
+// Démarrer la session
+session_start();
 // Vérification des données envoyées par le formulaire
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vérification de la présence des champs requis

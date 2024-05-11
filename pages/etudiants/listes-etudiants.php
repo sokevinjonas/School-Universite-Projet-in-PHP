@@ -16,7 +16,7 @@ $query = $bdd->query("SELECT * FROM etudiant");
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <!-- My CSS -->
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="/projet_web/assets/css/style.css">
 
     <title>Liste etudiants</title>
     <style>
@@ -129,6 +129,10 @@ $query = $bdd->query("SELECT * FROM etudiant");
                                 echo "</td>";
                                 echo "</tr>";
                             }
+                            // Si aucun étudiant n'est enregistré
+                                if ($query->rowCount() == 0) {
+                                    echo "<tr><td colspan='4'>Aucun étudiant enregistré.</td></tr>";
+                                }
                             ?>
                         </tbody>
                     </table>

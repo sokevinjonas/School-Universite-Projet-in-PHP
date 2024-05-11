@@ -128,6 +128,10 @@ $query = $bdd->query("SELECT * FROM personnel");
                                 echo "</td>";
                                 echo "</tr>";
                             }
+                            // Si aucun étudiant n'est enregistré
+                            if ($query->rowCount() == 0) {
+                                echo "<tr><td colspan='4'>Aucun personnel enregistré.</td></tr>";
+                            }
                             ?>
                         </tbody>
                     </table>

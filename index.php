@@ -1,5 +1,6 @@
 <?php 
 session_start();
+include_once('traitements/bd.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -43,24 +44,17 @@ session_start();
 
             <ul class="box-info">
                 <li>
-                    <i class='bx bxs-calendar-check'></i>
-                    <span class="text">
-                        <h3>1020</h3>
-                        <p>Etudiant</p>
-                    </span>
-                </li>
-                <li>
                     <i class='bx bxs-group'></i>
                     <span class="text">
-                        <h3>28</h3>
-                        <p>Professeur</p>
+                        <h3><?php echo $totalEtudiants; ?></h3>
+                        <p>Total Etudiant</p>
                     </span>
                 </li>
                 <li>
-                    <i class='bx bxs-dollar-circle'></i>
+                    <i class='bx bxs-user'></i>
                     <span class="text">
-                        <h3>23</h3>
-                        <p>Personnel</p>
+                        <h3><?php echo $totalPersonnels; ?></h3>
+                        <p>Total Professeur</p>
                     </span>
                 </li>
             </ul>
