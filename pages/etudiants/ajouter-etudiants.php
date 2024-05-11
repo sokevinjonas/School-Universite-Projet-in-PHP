@@ -12,6 +12,27 @@
     <link rel="stylesheet" href="../../assets/css/formulaire.css">
 
     <title>Liste etudiants</title>
+    <style>
+    .alert {
+        display: none;
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+    }
+
+    .error {
+        display: none;
+        background-color: #f44336;
+        color: white;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+    }
+    </style>
 </head>
 
 <body>
@@ -27,6 +48,21 @@
             <div class="head-title">
                 <div class="left">
                     <h1>Bievenue</h1>
+                    <?php
+                    // Vérifier si un message est présent dans l'URL
+                    if(isset($_GET['message'])) {
+                        $message = $_GET['message'];
+                    }
+                    if(isset($_GET['error_message'])) {
+                        $error_message = $_GET['error_message'];
+                    }
+                    ?>
+                    <div id="alert" class="alert" <?php if(isset($message)) echo "style='display: block;'"; ?>>
+                        <?php if(isset($message)) echo $message; ?>
+                    </div>
+                    <div id="alert" class="error" <?php if(isset($error_message)) echo "style='display: block;'"; ?>>
+                        <?php if(isset($error_message)) echo $error_message; ?>
+                    </div>
                     <ul class="breadcrumb">
                         <li>
                             <a href="#">Gestion Etudiant</a>
@@ -92,7 +128,7 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <input type="submit" name="enregistrer" class="button" value="enregistrer">
+                                    <input type="submit" name="enregistrer" class="button" value="Ajouter">
                                 </div>
                             </div>
                         </div>

@@ -35,6 +35,15 @@ $query = $bdd->query("SELECT * FROM etudiant");
     .button:active {
         background-color: #003d80;
     }
+
+    .alert {
+        display: none;
+        background-color: #f44336;
+        color: white;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+    }
     </style>
 </head>
 
@@ -50,6 +59,15 @@ $query = $bdd->query("SELECT * FROM etudiant");
             <div class="head-title">
                 <div class="left">
                     <h1>Bievenue</h1>
+                    <?php
+                    // Vérifier si un message est présent dans l'URL
+                    if(isset($_GET['message'])) {
+                        $message = $_GET['message'];
+                    }
+                    ?>
+                    <div id="alert" class="alert" <?php if(isset($message)) echo "style='display: block;'"; ?>>
+                        <?php if(isset($message)) echo $message; ?>
+                    </div>
                     <ul class="breadcrumb">
                         <li>
                             <a href="#">Gestion Etudiant</a>
@@ -87,7 +105,8 @@ $query = $bdd->query("SELECT * FROM etudiant");
                                 echo "<td>";
                                 echo "<a class='button'>Voir</a>";
                                 echo "<a class='button'>Modifier</a>";
-                                echo "<a class='button'>Supprimer</a>";
+                                // Lien de suppression
+                                echo "<a href='../../traitements/delete-etudiant.php?delete=" . $row['matricule'] . "' class='button' onclick='return confirm(\"Êtes-vous sûr de vouloir supprimer cet étudiant?\")'>Supprimer</a>";
                                 echo "</td>";
                                 echo "</tr>";
                             }
